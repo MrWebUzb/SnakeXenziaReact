@@ -1,13 +1,73 @@
-body {
+body,
+#root {
+  /* Break the flow */
+  position: absolute;
+  top: 0px;
+
+  /* Give them all the available space */
+  width: 100%;
+  height: 100%;
+
+  /* Remove the margins if any */
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+  /* Allow them to scroll down the document */
+  overflow-y: hidden;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  /* Sending body at the bottom of the stack */
+  z-index: 1;
+}
+
+#root {
+  /* Making the wrapper stack above the body */
+  z-index: 2;
+}
+
+.game-area {
+  position: relative;
+  margin: 50px auto;
+  width: 400px;
+  height: 400px;
+  border: 2px solid #000;
+}
+
+.game-score {
+  position: absolute;
+  background-color: #000;
+  color: #fff;
+  font-size: 20px;
+  padding: 3px;
+  border: 1px solid #fff;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.snake-dot {
+  position: absolute;
+  width: 2%;
+  height: 2%;
+  background-color: green;
+  border: 1px solid #fff;
+  z-index: 2;
+}
+
+.snake-food {
+  position: absolute;
+  width: 2%;
+  height: 2%;
+  background-color: red;
+  border: 1px solid #fff;
+  z-index: 1;
+}
+
+.level-dot {
+  position: absolute;
+  width: 2%;
+  height: 2%;
+  background-color: #000;
+  border: 1px solid #fff;
+  z-index: 1;
 }
